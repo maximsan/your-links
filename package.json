@@ -7,9 +7,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "db:init": "npx prisma migrate dev --name init",
+    "db:seed": "npx prisma db seed",
+    "studio": "npx prisma studio"
   },
   "dependencies": {
+    "@prisma/client": "5.0.0",
     "@types/node": "20.4.2",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
@@ -18,6 +22,7 @@
     "eslint-config-next": "13.4.10",
     "next": "13.4.10",
     "postcss": "8.4.26",
+    "prisma": "^5.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-feather": "^2.0.10",
@@ -26,6 +31,10 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "prettier": "^3.0.0"
+    "prettier": "^3.0.0",
+    "ts-node": "^10.9.1"
+  },
+  "prisma": {
+    "seed": "ts-node --transpile-only ./prisma/seed.ts"
   }
 }
